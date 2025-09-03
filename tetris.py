@@ -9,11 +9,11 @@ Ce code est basee sur le code de Sébastien CHAZALLET, auteur du livre "Python 3
 
 __author__ = "votre nom"
 __copyright__ = "Copyright 2022"
-__credits__ = ["Sébastien CHAZALLET", "Vincent NGUYEN", "votre nom"]
+__credits__ = ["Sébastien CHAZALLET", "Vincent NGUYEN", "Kylian HANIQUET"]
 __license__ = "GPL"
 __version__ = "1.0"
-__maintainer__ = "votre nom"
-__email__ = "votre email"
+__maintainer__ = "haniquet"
+__email__ = "haniquet.pro@gmail.com"
 
 # Probleme de l'ordre des imports
 from pygame.locals import *
@@ -42,6 +42,8 @@ POSITION_PIECES = POSITION_SCORE[0], 150
 POSITION_LIGNES = POSITION_SCORE[0], 180
 POSITION_TETRIS = POSITION_SCORE[0], 210
 POSITION_NIVEAU = POSITION_SCORE[0], 240
+
+# Liste des pieces avec les differentes orientations, ordre a changer pour leur donner un cycle correcte.
 
 PIECES = {
 	'O': [
@@ -77,9 +79,12 @@ PIECES = {
 		'0000\n0000\n7770\n0700',
 		'0000\n0070\n0770\n0070',
 	]}
+# split les pieces de la sorte : [x, x, x, x]
 
 for name, rotations in PIECES.items():
 	PIECES[name] = [[[int(i) for i in p] for p in r.splitlines()] for r in rotations]
+
+# Code rgb des couleurs des pieces
 
 COULEURS = {
 	0: (0, 0, 0),
@@ -129,6 +134,7 @@ class Jeu:
 		rect = rendu.get_rect()
 		rect.center = position
 		self.surface.blit(rendu, rect)
+  
 	def _getEvent(self):
 		for event in pygame.event.get():
 			if event.type == QUIT:
