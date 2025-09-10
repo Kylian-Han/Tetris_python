@@ -152,7 +152,7 @@ class Jeu:
 		self.lignes += lignes
 		self.score += lignes * self.niveau
 		self.niveau = int(self.lignes / 10) + 1
-		if lignes >= 4: # TODO, le 4 nombre magique
+		if lignes >= cons.NOMBRE_DE_LIGNES_SCORE_MULTIPLIE:
 			self.tetris +=1
 			self.score += self.niveau * self.tetris
 		# Travail avec la pièce courante terminé
