@@ -6,7 +6,8 @@
 """
 [Ce bloc est la documentation du module]
 Un Tetris avec Pygame.
-Ce code est basee sur le code de Sébastien CHAZALLET, auteur du livre "Python 3, les fondamentaux du language"
+Ce code est basee sur le code de Sébastien CHAZALLET, auteur du livre "Python 3,
+les fondamentaux du language"
 """
 
 __author__ = "votre nom"
@@ -18,6 +19,7 @@ __maintainer__ = "haniquet"
 __email__ = "haniquet.pro@gmail.com"
 
 # Probleme de l'ordre des imports
+# pylint: disable=unused-wildcard-import
 from pygame.locals import *
 import random
 import time
@@ -406,7 +408,7 @@ class Jeu:
             None
         """
         
-        print("Jouer")
+        print('Jouer')
         self.surface.fill(cons.COULEURS.get(0))
         self._first()
         while not self.perdu:
@@ -417,11 +419,12 @@ class Jeu:
             self._dessiner_plateau()
 
 if __name__ == '__main__':
-    j = Jeu()
-    print("Jeu prêt")
-    j.start()
-    print("Partie démarée")
-    j.play()
-    print("Partie terminée")
-    j.stop()
-    print("Arrêt du programme")
+    jeu = Jeu()
+    print('Jeu prêt')
+    jeu.start()
+    print('Partie démarée')
+    jeu.play()
+    print('Partie terminée')
+    jeu.stop()
+    print('Arrêt du programme')
+
